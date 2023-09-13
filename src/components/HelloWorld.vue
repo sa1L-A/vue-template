@@ -1,32 +1,26 @@
 <template>
   <div>
-    <h1>
-      <a href="https://vitejs.dev/guide/features.html"> Vite </a>
-      +
-      <a href="https://v3.vuejs.org/">Vue</a>
-      +
-      <a href="https://www.typescriptlang.org/docs/"> Typescript </a>
-      +
-      <a href="https://eslint.org/docs/user-guide/"> ESLint </a>
-      +
-      <a href="https://prettier.io/docs/en/index.html"> Prettier </a>
-    </h1>
     <div class="card">
-      <button type="button" @click="addCount">count is {{ store.state.count }}</button>
+      {{ msg }}
+      <n-button type="info" class="code" text @click="addCount">count is {{ baseStore.count }}</n-button>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { useStore } from '@/store';
-const store = useStore();
+import { NButton } from 'naive-ui';
+import { useBaseStore } from '@/store';
 
-defineProps<{ msg: string }>();
+const baseStore = useBaseStore();
+
+defineProps<{
+  msg?: string;
+}>();
 
 const addCount = () => {
-  store.commit('addCount');
+  baseStore.increment();
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 label {
   margin: 0 0.5em;
   font-weight: bold;

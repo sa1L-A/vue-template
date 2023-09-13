@@ -1,27 +1,13 @@
-import { InjectionKey } from 'vue';
-import { createStore, useStore as baseUseStore, Store } from 'vuex';
+import { defineStore } from 'pinia';
 
-export interface State {
-  count: number;
-}
-
-export const storeKey: InjectionKey<Store<State>> = Symbol('storeKey');
-
-export const store = createStore<State>({
-  state: {
-    count: 0,
+export const useBaseStore = defineStore('basement', {
+  state: () => ({ count: 0, name: 'Eduardo' }),
+  getters: {
+    doubleCount: (state) => state.count * 2,
   },
-  mutations: {
-    addCount(state: State) {
-      state.count += 1;
+  actions: {
+    increment() {
+      this.count++;
     },
   },
 });
-
-/**
- * Customize userStore
- * @returns store
- */
-export function useStore() {
-  return baseUseStore(storeKey);
-}

@@ -1,9 +1,11 @@
 <template>
-  <HelloWorld msg="Vite + Vue + Typescript" />
+  <div class="app">
+    <router-view></router-view>
+  </div>
 </template>
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
-</script>
-<style lang="scss">
-@use '@/styles/boot.scss' as *;
+<style lang="less" scoped>
+.app {
+  height: 100%;
+  width: 100%;
+}
 </style>

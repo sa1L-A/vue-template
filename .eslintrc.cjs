@@ -10,11 +10,17 @@ module.exports = {
     '@vue/typescript/recommended',
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
-    'plugin:markdown/recommended',
   ],
   parserOptions: {
     ecmaVersion: 'latest',
   },
   plugins: ['vue', '@typescript-eslint'],
-  rules: {},
+  rules: {
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index'],
+      },
+    ],
+  },
 };
