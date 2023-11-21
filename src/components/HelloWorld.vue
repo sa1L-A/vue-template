@@ -2,7 +2,7 @@
   <div>
     <div class="card">
       {{ msg }}
-      <n-button type="info" class="code" text @click="addCount">count is {{ baseStore.count }}</n-button>
+      <n-button type="info" class="code" text @click="addCount"> count is {{ baseStore.count }} </n-button>
     </div>
   </div>
 </template>

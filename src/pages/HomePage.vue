@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HelloWorld msg="hello"></HelloWorld>
+    <HelloWorld msg="hello" />
   </div>
 </template>
 <script setup lang="ts">
